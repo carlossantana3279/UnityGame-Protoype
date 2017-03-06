@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PushAwayAttShoot : MonoBehaviour {
 
+    public bool canShoot;
     public int gunDamage = 1;
     public float fireRate = 0.25f;
     public float weaponRange = 50f;
@@ -40,7 +41,7 @@ public class PushAwayAttShoot : MonoBehaviour {
     void Update()
     {
         //my stuff
-        if (Input.GetKeyDown(KeyCode.Q) && playerMana.enoughMana(manaCost))
+        if (Input.GetKeyDown(KeyCode.Q)&& canShoot && playerMana.enoughMana(manaCost))
         {   //if key is pressed down ONCE not is continuous press
             //Ray interactionRay = fpsCam.ScreenPointToRay(Input.mousePosition);
             //&& Time.time > nextFire

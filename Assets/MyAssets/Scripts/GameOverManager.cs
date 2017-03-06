@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour {
 
@@ -10,13 +11,11 @@ public class GameOverManager : MonoBehaviour {
     Animator anim;                          // Reference to the animator component.
     float restartTimer;                     // Timer to count up to restarting the level
 
-
     void Awake()
     {
         // Set up the reference.
         anim = GetComponent<Animator>();
     }
-
 
     void Update()
     {
@@ -34,7 +33,7 @@ public class GameOverManager : MonoBehaviour {
             {
                 // .. then reload the currently loaded level.
                 //Application.LoadLevel(Application.loadedLevel);
-                Debug.Log("GAME OVER!!!!!!!!!!!!!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }

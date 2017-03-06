@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-
+    public bool canShoot;
     public int gunDamage = 1;
     public float fireRate = 0.25f;
     public float weaponRange = 50f;
@@ -41,7 +41,7 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
         //my stuff
-        if (Input.GetMouseButton(0) && Time.time > nextFire && playerMana.enoughMana(manaCost))
+        if (Input.GetMouseButton(0) && canShoot && Time.time > nextFire && playerMana.enoughMana(manaCost))
         {   //if key is pressed down ONCE not is continuous press
             //Ray interactionRay = fpsCam.ScreenPointToRay(Input.mousePosition);
             nextFire = Time.time + fireRate;
